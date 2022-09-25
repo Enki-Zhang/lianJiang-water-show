@@ -47,7 +47,7 @@
             </div>
           </div>
         </div>
-
+        <!-- 中心内容 -->
         <div class="body-box">
           <!-- 第三行数据 -->
           <div class="content-box">
@@ -64,10 +64,10 @@
                 <centerLeft2 />
               </dv-border-box-7>
             </div>
-            <!-- 顶部右边 -->
+            <!-- 顶部右边 地图数据 添加路由跳转-->
 
-            <div>
-              <top-right />
+            <div @click="showMap">
+              <top-right></top-right>
             </div>
           </div>
 
@@ -134,6 +134,12 @@ export default {
       setTimeout(() => {
         this.loading = false;
       }, 500);
+    },
+    showMap() {
+      this.$router.push({
+        name: `map`,
+      });
+      console.log(`展示Map`);
     },
   },
 };
