@@ -1,63 +1,6 @@
 <template>
   <div class="body">
-    <div class="sidebar">
-      <!-- <img src="logo.png" alt="Logo" class="logo" /> -->
-
-      <ul class="workouts">
-        <form class="form hidden">
-          <span>
-            练江是广东东部沿海的一条河流，发源于普宁市，源头为五峰山寒妈径，流经汕头市潮南区，
-            在汕头市潮阳区海门镇海门湾入海。是潮阳区、潮南区、普宁市的母亲河。练江全长72公里，
-            流域面积达1353平方公里，其中在汕头市潮阳区长约40公里，流域面积约839平方公里
-          </span>
-
-          <span>
-            由于缺乏水源以及生活污水、污染企业废水直排（练江沿岸有众多的再生纸制造企业，印染企业以及废旧电子电器拆解等企业），生活垃圾直倒，造成练江污染严重，整条江几乎成了“黑江”，水质为劣五类。
-            是粤东五大河流中污染指数最严重的河流。更加重中加重的是，人口大区潮阳区、潮南区，
-            以及现中国人口第一县级市普宁市都没有污水处理厂。由于污染严重，水体不能饮用，也威胁着流域内居民的健康。
-            特别是练江流域内以电子洋垃圾闻名全球的贵屿镇要靠向外地买水来饮用，而且群众癌症发病率高。
-          </span>
-          <!-- <div class="form__row">
-            <label class="form__label">Type</label>
-            <select class="form__input form__input--type">
-              <option value="running">Running</option>
-              <option value="cycling">Cycling</option>
-            </select>
-          </div>
-          <div class="form__row">
-            <label class="form__label">Distance</label>
-            <input class="form__input form__input--distance" placeholder="km" />
-          </div>
-          <div class="form__row">
-            <label class="form__label">Duration</label>
-            <input
-              class="form__input form__input--duration"
-              placeholder="min"
-            />
-          </div>
-          <div class="form__row">
-            <label class="form__label">Cadence</label>
-            <input
-              class="form__input form__input--cadence"
-              placeholder="step/min"
-            />
-          </div>
-          <div class="form__row form__row--hidden">
-            <label class="form__label">Elev Gain</label>
-            <input
-              class="form__input form__input--elevation"
-              placeholder="meters"
-            />
-          </div>
-          <button class="form__btn">OK</button> -->
-        </form>
-      </ul>
-
-      <!-- <p class="copyright">
-        练江监测站信息显示
-      </p> -->
-    </div>
-    <div id="map"></div>
+    <div id="map" @click="sendInfo"></div>
   </div>
 </template>
 
@@ -81,9 +24,10 @@ export default {
       }).addTo(map);
 
       L.tooltip({ permanent: false });
+      // 标记
       L.marker([23.2189, 116.6189])
         .addTo(map)
-        .bindPopup("监测站信息")
+        // .bindPopup("监测站信息")
         .bindTooltip("监测站01")
         .openTooltip();
       L.marker([23.2628, 116.4831])
@@ -96,6 +40,27 @@ export default {
         .addTo(map)
         .bindPopup("监测站");
       L.marker([23.1834, 116.5308])
+        .addTo(map)
+        .bindPopup("监测站");
+      L.marker([23.2897, 116.3424])
+        .addTo(map)
+        .bindPopup("监测站");
+      L.marker([23.2618, 116.3126])
+        .addTo(map)
+        .bindPopup("监测站");
+      L.marker([23.2607, 116.2915])
+        .addTo(map)
+        .bindPopup("监测站");
+      L.marker([23.3044, 116.3153])
+        .addTo(map)
+        .bindPopup("监测站");
+      L.marker([23.2956, 116.3519])
+        .addTo(map)
+        .bindPopup("监测站");
+      L.marker([23.2398, 116.3736])
+        .addTo(map)
+        .bindPopup("监测站");
+      L.marker([23.2776, 116.3759])
         .addTo(map)
         .bindPopup("监测站");
       /*     var popup = L.popup();
@@ -113,6 +78,10 @@ export default {
         form.classList.remove(`hidden`);
         // inputDistance.focus();
       });
+    },
+    // 触发事件,事件名不能重复
+    sendInfo() {
+      this.$bus.$emit("aa", "1111");
     },
   },
   mounted() {

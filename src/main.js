@@ -42,7 +42,8 @@ Vue.component("icon", Icon);
 Vue.use(dataV);
 
 Vue.L = Vue.prototype.$L = L;
-
+//关闭Vue的生产提示
+Vue.config.productionTip = false;
 /* leaflet icon */
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -56,4 +57,7 @@ new Vue({
   router,
   store,
   render: (h) => h(App),
+  beforeCreate() {
+    Vue.prototype.$bus = this; //安装全局事件总线
+  },
 }).$mount("#app");

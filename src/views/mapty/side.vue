@@ -92,6 +92,12 @@ export default {
   data() {
     return {};
   },
+  mounted() {
+    // 绑定自定义事件
+    this.$bus.$on("aa", (info) => {
+      console.log("我是TestB组件，收到了数据", info);
+    });
+  },
 };
 </script>
 <style lang="scss" scoped>
